@@ -10,33 +10,296 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AdminContactRouteImport } from './routes/admin-contact'
+import { Route as AssignmentsRouteImport } from './routes/assignments'
+import { Route as AttendanceRouteImport } from './routes/attendance'
+import { Route as BillingRouteImport } from './routes/billing'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as ParentsRouteImport } from './routes/parents'
+import { Route as PermissionsRouteImport } from './routes/permissions'
+import { Route as PrepRouteImport } from './routes/prep'
+import { Route as RolesRouteImport } from './routes/roles'
+import { Route as ScheduleRouteImport } from './routes/schedule'
+import { Route as StudentsRouteImport } from './routes/students'
+import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as ChildrenIndexRouteImport } from './routes/children.index'
+import { Route as ChildrenStudentIdRouteImport } from './routes/children.$studentId'
+import { Route as MIndexRouteImport } from './routes/m.index'
+import { Route as StudentsStudentIdRouteImport } from './routes/students.$studentId'
+import { Route as MModuleIndexRouteImport } from './routes/m.$module.index'
+import { Route as MModulePageRouteImport } from './routes/m.$module.$page'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContactRoute = AdminContactRouteImport.update({
+  id: '/admin-contact',
+  path: '/admin-contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssignmentsRoute = AssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AttendanceRoute = AttendanceRouteImport.update({
+  id: '/attendance',
+  path: '/attendance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BillingRoute = BillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentsRoute = ParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PermissionsRoute = PermissionsRouteImport.update({
+  id: '/permissions',
+  path: '/permissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrepRoute = PrepRouteImport.update({
+  id: '/prep',
+  path: '/prep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RolesRoute = RolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleRoute = ScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentsRoute = StudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChildrenIndexRoute = ChildrenIndexRouteImport.update({
+  id: '/children/',
+  path: '/children/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChildrenStudentIdRoute = ChildrenStudentIdRouteImport.update({
+  id: '/children/$studentId',
+  path: '/children/$studentId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MIndexRoute = MIndexRouteImport.update({
+  id: '/m/',
+  path: '/m/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentsStudentIdRoute = StudentsStudentIdRouteImport.update({
+  id: '/$studentId',
+  path: '/$studentId',
+  getParentRoute: () => StudentsRoute,
+} as any)
+const MModuleIndexRoute = MModuleIndexRouteImport.update({
+  id: '/m/$module/',
+  path: '/m/$module/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MModulePageRoute = MModulePageRouteImport.update({
+  id: '/m/$module/$page',
+  path: '/m/$module/$page',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/admin-contact': typeof AdminContactRoute
+  '/assignments': typeof AssignmentsRoute
+  '/attendance': typeof AttendanceRoute
+  '/billing': typeof BillingRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/permissions': typeof PermissionsRoute
+  '/prep': typeof PrepRoute
+  '/roles': typeof RolesRoute
+  '/schedule': typeof ScheduleRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/welcome': typeof WelcomeRoute
+  '/children/$studentId': typeof ChildrenStudentIdRoute
+  '/students/$studentId': typeof StudentsStudentIdRoute
+  '/children/': typeof ChildrenIndexRoute
+  '/m/': typeof MIndexRoute
+  '/m/$module/$page': typeof MModulePageRoute
+  '/m/$module/': typeof MModuleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/admin-contact': typeof AdminContactRoute
+  '/assignments': typeof AssignmentsRoute
+  '/attendance': typeof AttendanceRoute
+  '/billing': typeof BillingRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/permissions': typeof PermissionsRoute
+  '/prep': typeof PrepRoute
+  '/roles': typeof RolesRoute
+  '/schedule': typeof ScheduleRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/welcome': typeof WelcomeRoute
+  '/children/$studentId': typeof ChildrenStudentIdRoute
+  '/students/$studentId': typeof StudentsStudentIdRoute
+  '/children': typeof ChildrenIndexRoute
+  '/m': typeof MIndexRoute
+  '/m/$module/$page': typeof MModulePageRoute
+  '/m/$module': typeof MModuleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/admin-contact': typeof AdminContactRoute
+  '/assignments': typeof AssignmentsRoute
+  '/attendance': typeof AttendanceRoute
+  '/billing': typeof BillingRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
+  '/parents': typeof ParentsRoute
+  '/permissions': typeof PermissionsRoute
+  '/prep': typeof PrepRoute
+  '/roles': typeof RolesRoute
+  '/schedule': typeof ScheduleRoute
+  '/students': typeof StudentsRouteWithChildren
+  '/welcome': typeof WelcomeRoute
+  '/children/$studentId': typeof ChildrenStudentIdRoute
+  '/students/$studentId': typeof StudentsStudentIdRoute
+  '/children/': typeof ChildrenIndexRoute
+  '/m/': typeof MIndexRoute
+  '/m/$module/$page': typeof MModulePageRoute
+  '/m/$module/': typeof MModuleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/admin-contact'
+    | '/assignments'
+    | '/attendance'
+    | '/billing'
+    | '/messages'
+    | '/notifications'
+    | '/parents'
+    | '/permissions'
+    | '/prep'
+    | '/roles'
+    | '/schedule'
+    | '/students'
+    | '/welcome'
+    | '/children/$studentId'
+    | '/students/$studentId'
+    | '/children/'
+    | '/m/'
+    | '/m/$module/$page'
+    | '/m/$module/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/admin-contact'
+    | '/assignments'
+    | '/attendance'
+    | '/billing'
+    | '/messages'
+    | '/notifications'
+    | '/parents'
+    | '/permissions'
+    | '/prep'
+    | '/roles'
+    | '/schedule'
+    | '/students'
+    | '/welcome'
+    | '/children/$studentId'
+    | '/students/$studentId'
+    | '/children'
+    | '/m'
+    | '/m/$module/$page'
+    | '/m/$module'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/admin-contact'
+    | '/assignments'
+    | '/attendance'
+    | '/billing'
+    | '/messages'
+    | '/notifications'
+    | '/parents'
+    | '/permissions'
+    | '/prep'
+    | '/roles'
+    | '/schedule'
+    | '/students'
+    | '/welcome'
+    | '/children/$studentId'
+    | '/students/$studentId'
+    | '/children/'
+    | '/m/'
+    | '/m/$module/$page'
+    | '/m/$module/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AdminContactRoute: typeof AdminContactRoute
+  AssignmentsRoute: typeof AssignmentsRoute
+  AttendanceRoute: typeof AttendanceRoute
+  BillingRoute: typeof BillingRoute
+  MessagesRoute: typeof MessagesRoute
+  NotificationsRoute: typeof NotificationsRoute
+  ParentsRoute: typeof ParentsRoute
+  PermissionsRoute: typeof PermissionsRoute
+  PrepRoute: typeof PrepRoute
+  RolesRoute: typeof RolesRoute
+  ScheduleRoute: typeof ScheduleRoute
+  StudentsRoute: typeof StudentsRouteWithChildren
+  WelcomeRoute: typeof WelcomeRoute
+  ChildrenStudentIdRoute: typeof ChildrenStudentIdRoute
+  ChildrenIndexRoute: typeof ChildrenIndexRoute
+  MIndexRoute: typeof MIndexRoute
+  MModulePageRoute: typeof MModulePageRoute
+  MModuleIndexRoute: typeof MModuleIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +311,182 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-contact': {
+      id: '/admin-contact'
+      path: '/admin-contact'
+      fullPath: '/admin-contact'
+      preLoaderRoute: typeof AdminContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assignments': {
+      id: '/assignments'
+      path: '/assignments'
+      fullPath: '/assignments'
+      preLoaderRoute: typeof AssignmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/attendance': {
+      id: '/attendance'
+      path: '/attendance'
+      fullPath: '/attendance'
+      preLoaderRoute: typeof AttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/billing': {
+      id: '/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof BillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parents': {
+      id: '/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof ParentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/permissions': {
+      id: '/permissions'
+      path: '/permissions'
+      fullPath: '/permissions'
+      preLoaderRoute: typeof PermissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prep': {
+      id: '/prep'
+      path: '/prep'
+      fullPath: '/prep'
+      preLoaderRoute: typeof PrepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roles': {
+      id: '/roles'
+      path: '/roles'
+      fullPath: '/roles'
+      preLoaderRoute: typeof RolesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule': {
+      id: '/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/students': {
+      id: '/students'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof StudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/children/': {
+      id: '/children/'
+      path: '/children'
+      fullPath: '/children/'
+      preLoaderRoute: typeof ChildrenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/children/$studentId': {
+      id: '/children/$studentId'
+      path: '/children/$studentId'
+      fullPath: '/children/$studentId'
+      preLoaderRoute: typeof ChildrenStudentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/m/': {
+      id: '/m/'
+      path: '/m'
+      fullPath: '/m/'
+      preLoaderRoute: typeof MIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/students/$studentId': {
+      id: '/students/$studentId'
+      path: '/$studentId'
+      fullPath: '/students/$studentId'
+      preLoaderRoute: typeof StudentsStudentIdRouteImport
+      parentRoute: typeof StudentsRoute
+    }
+    '/m/$module/': {
+      id: '/m/$module/'
+      path: '/m/$module'
+      fullPath: '/m/$module/'
+      preLoaderRoute: typeof MModuleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/m/$module/$page': {
+      id: '/m/$module/$page'
+      path: '/m/$module/$page'
+      fullPath: '/m/$module/$page'
+      preLoaderRoute: typeof MModulePageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface StudentsRouteChildren {
+  StudentsStudentIdRoute: typeof StudentsStudentIdRoute
+}
+
+const StudentsRouteChildren: StudentsRouteChildren = {
+  StudentsStudentIdRoute: StudentsStudentIdRoute,
+}
+
+const StudentsRouteWithChildren = StudentsRoute._addFileChildren(
+  StudentsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AdminContactRoute: AdminContactRoute,
+  AssignmentsRoute: AssignmentsRoute,
+  AttendanceRoute: AttendanceRoute,
+  BillingRoute: BillingRoute,
+  MessagesRoute: MessagesRoute,
+  NotificationsRoute: NotificationsRoute,
+  ParentsRoute: ParentsRoute,
+  PermissionsRoute: PermissionsRoute,
+  PrepRoute: PrepRoute,
+  RolesRoute: RolesRoute,
+  ScheduleRoute: ScheduleRoute,
+  StudentsRoute: StudentsRouteWithChildren,
+  WelcomeRoute: WelcomeRoute,
+  ChildrenStudentIdRoute: ChildrenStudentIdRoute,
+  ChildrenIndexRoute: ChildrenIndexRoute,
+  MIndexRoute: MIndexRoute,
+  MModulePageRoute: MModulePageRoute,
+  MModuleIndexRoute: MModuleIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
